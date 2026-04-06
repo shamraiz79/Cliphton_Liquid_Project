@@ -27,13 +27,18 @@
     <!-- IMAGE + DOTS -->
     <div class="feature-image-wrapper">
 
-      {% if section.settings.main_image != blank %}
-        <img 
-          src="{{ section.settings.main_image | image_url }}" 
-          alt="Feature Image" 
-          class="feature-img"
-        >
-      {% endif %}
+     <div class="feature-images">
+
+  {% for block in section.blocks %}
+    {% if block.settings.image != blank %}
+      <img 
+        src="{{ block.settings.image | image_url }}" 
+        class="feature-img {% if forloop.first %}active{% endif %}"
+      >
+    {% endif %}
+  {% endfor %}
+
+</div>
 
       <div class="side-dots">
         {% for block in section.blocks %}
@@ -52,13 +57,7 @@
 {% schema %}
 {
   "name": "Feature Capsules",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "feature_item",
@@ -86,6 +85,11 @@
           "type": "url",
           "id": "button_link",
           "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature Image"
         }
       ]
     }

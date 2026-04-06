@@ -2853,23 +2853,44 @@ header.scrolled .hamburger { filter: brightness(0); color: #000; }
 }
 
 /* Image & Dots */
+/* IMAGE CONTAINER */
+.feature-images {
+    position: relative;
+    width: 100%;
+    height: 500px; /* 🔥 FIXED HEIGHT (you can adjust) */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* ALL IMAGES */
+.feature-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* 🔥 FORCE SAME SIZE */
+    object-fit: cover; /* 🔥 IMPORTANT */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* ACTIVE IMAGE */
+.feature-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* WRAPPER */
 .feature-image-wrapper {
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
-.feature-img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
+/* DOTS */
 .side-dots {
     position: absolute;
     right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 12px;

@@ -15,7 +15,7 @@
         "video": "shopify://files/videos/video.mp4",
         "heading": "Bold Coffee Moments",
         "button_text": "Shop Now",
-        "button_link": ""
+        "button_link": "shopify://collections"
       }
     },
     "collections": {
@@ -131,52 +131,54 @@
     "feature_capsules": {
       "type": "feature-capsules",
       "blocks": {
-        "feature_1": {
+        "feature_item_jAwzT4": {
           "type": "feature_item",
           "settings": {
             "heading": "Clifton Capsules",
-            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "description": "Write yoThe wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......ur description here...",
             "button_text": "Read More",
-            "button_link": ""
+            "button_link": "",
+            "image": "shopify://shop_images/2_1.png"
           }
         },
-        "feature_2": {
+        "feature_item_qpBENt": {
           "type": "feature_item",
           "settings": {
-            "heading": "Clifton Coffee",
-            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "heading": "Clifton Capsules",
+            "description": "Write your descrThe wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......iption here...",
             "button_text": "Read More",
-            "button_link": ""
+            "button_link": "",
+            "image": "shopify://shop_images/2.png"
           }
         },
-        "feature_3": {
+        "feature_item_igcAWj": {
           "type": "feature_item",
           "settings": {
-            "heading": "Premium Roast",
-            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "heading": "Clifton Capsules",
+            "description": "Write your descriThe wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......ption here...",
             "button_text": "Read More",
-            "button_link": ""
+            "button_link": "",
+            "image": "shopify://shop_images/3_1.png"
           }
         },
-        "feature_4": {
+        "feature_item_yYFyEc": {
           "type": "feature_item",
           "settings": {
-            "heading": "Subscription",
-            "description": "Never run out of coffee...",
+            "heading": "Clifton Capsules",
+            "description": "Write your The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......description here...",
             "button_text": "Read More",
-            "button_link": ""
+            "button_link": "",
+            "image": "shopify://shop_images/3_2_deaea4d2-0403-400d-80d5-01941fc958c4.png"
           }
         }
       },
       "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3",
-        "feature_4"
+        "feature_item_jAwzT4",
+        "feature_item_qpBENt",
+        "feature_item_igcAWj",
+        "feature_item_yYFyEc"
       ],
-      "settings": {
-        "main_image": "shopify://shop_images/2_1.png"
-      }
+      "settings": {}
     },
     "favorites": {
       "type": "favorites",

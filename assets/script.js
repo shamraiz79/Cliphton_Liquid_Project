@@ -344,17 +344,27 @@ if (favWindowEl) {
 function moveVerticalSlider(index) {
     const track = document.getElementById('verticalTrack');
     const dots = document.querySelectorAll('.s-dot');
-    const slides = document.querySelectorAll('.content-block');  
+    const slides = document.querySelectorAll('.content-block');
+    const images = document.querySelectorAll('.feature-img'); // ✅ NEW
+
     // 1. Update Dots
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
-    // 2. Update Active Class on Slides (Triggers the visual fade/bold)
+
+    // 2. Update Text Slides
     slides.forEach(slide => slide.classList.remove('active'));
     slides[index].classList.add('active');
+
     // 3. Move Track Vertically
-    const slideHeight = 400; 
+    const slideHeight = slides[0].offsetHeight; // ✅ better than fixed 400
     const moveY = index * slideHeight;
     track.style.transform = `translateY(-${moveY}px)`;
+
+    // 4. ✅ SWITCH IMAGES
+    images.forEach(img => img.classList.remove('active'));
+    if (images[index]) {
+        images[index].classList.add('active');
+    }
 }
 // --- Favorites Slider Logic ---
 function moveFavoritesSlider(index) {
