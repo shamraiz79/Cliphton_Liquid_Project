@@ -1,0 +1,438 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "video": "shopify://files/videos/video.mp4",
+        "heading": "Bold Coffee Moments",
+        "button_text": "Shop Now",
+        "button_link": ""
+      }
+    },
+    "collections": {
+      "type": "collections",
+      "blocks": {
+        "collection_card_Ufyb8j": {
+          "type": "collection_card",
+          "settings": {
+            "image_base": "shopify://shop_images/BoxSection2.png",
+            "image_hover": "shopify://shop_images/BoxSection1.png",
+            "collection": "",
+            "title": "Collection Name",
+            "button_text": "Shop Now",
+            "link": ""
+          }
+        },
+        "collection_card_HRTDLM": {
+          "type": "collection_card",
+          "settings": {
+            "image_base": "shopify://shop_images/BoxSection1.png",
+            "image_hover": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+            "collection": "",
+            "title": "Collection Name",
+            "button_text": "Shop Now",
+            "link": ""
+          }
+        },
+        "collection_card_mDdQ8f": {
+          "type": "collection_card",
+          "settings": {
+            "image_base": "shopify://shop_images/6.png",
+            "image_hover": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+            "collection": "",
+            "title": "Collection Name",
+            "button_text": "Shop Now",
+            "link": ""
+          }
+        },
+        "collection_card_47ENFV": {
+          "type": "collection_card",
+          "settings": {
+            "image_base": "shopify://shop_images/5.png",
+            "image_hover": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+            "collection": "",
+            "title": "Collection Name",
+            "button_text": "Shop Now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_Ufyb8j",
+        "collection_card_HRTDLM",
+        "collection_card_mDdQ8f",
+        "collection_card_47ENFV"
+      ],
+      "settings": {
+        "title": "Our Collections"
+      }
+    },
+    "new_products": {
+      "type": "new-products",
+      "blocks": {
+        "collage_image_f3P7PR": {
+          "type": "collage_image",
+          "settings": {
+            "image": "shopify://shop_images/BoxSection2.png"
+          }
+        },
+        "collage_image_Q7qQen": {
+          "type": "collage_image",
+          "settings": {
+            "image": "shopify://shop_images/AprilSubs1-1024x435_2.png"
+          }
+        },
+        "collage_image_66E93a": {
+          "type": "collage_image",
+          "settings": {
+            "image": "shopify://shop_images/AprilSubs1-1024x435_2.png"
+          }
+        },
+        "collage_image_k4FLVN": {
+          "type": "collage_image",
+          "settings": {
+            "image": "shopify://shop_images/BoxSection1.png"
+          }
+        }
+      },
+      "block_order": [
+        "collage_image_f3P7PR",
+        "collage_image_Q7qQen",
+        "collage_image_66E93a",
+        "collage_image_k4FLVN"
+      ],
+      "settings": {
+        "heading": "New Products",
+        "subtext": "Discover our premium coffee collections crafted for every taste!",
+        "coffee_image": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+        "collection": "our-collection",
+        "products_to_show": 8
+      }
+    },
+    "shop_coffee_KFkxVw": {
+      "type": "shop-coffee",
+      "name": "Shop Coffee Hero",
+      "settings": {
+        "bg_image": "shopify://shop_images/Shope_coffe_2.png",
+        "sub_heading": "Clifton Coffee — Speciality Coffee",
+        "heading": "Shop coffee",
+        "description": "Discover your perfect cup of coffee—crafted to match your taste and style. \nWake up to perfection every day!"
+      }
+    },
+    "feature_capsules": {
+      "type": "feature-capsules",
+      "blocks": {
+        "feature_1": {
+          "type": "feature_item",
+          "settings": {
+            "heading": "Clifton Capsules",
+            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "button_text": "Read More",
+            "button_link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature_item",
+          "settings": {
+            "heading": "Clifton Coffee",
+            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "button_text": "Read More",
+            "button_link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature_item",
+          "settings": {
+            "heading": "Premium Roast",
+            "description": "The wait is finally over, our capsules are back and better than ever.It is a \nlong established fact that a reader will be distracted by the readable\ncontent of a page when looking at its layout......",
+            "button_text": "Read More",
+            "button_link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature_item",
+          "settings": {
+            "heading": "Subscription",
+            "description": "Never run out of coffee...",
+            "button_text": "Read More",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "main_image": "shopify://shop_images/2_1.png"
+      }
+    },
+    "favorites": {
+      "type": "favorites",
+      "blocks": {
+        "favorite_card_r8CMnV": {
+          "type": "favorite_card",
+          "settings": {
+            "image": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+            "title": "Peru",
+            "price": "£13.50",
+            "rating": "★★★★★",
+            "region": "Ahuachapán",
+            "producer": "Ricardo Lima",
+            "process": "Natural",
+            "button_text": "Buy Now",
+            "read_more": "Read More",
+            "link": "",
+            "bg_color": "bg-green"
+          }
+        },
+        "favorite_card_HkF9rk": {
+          "type": "favorite_card",
+          "settings": {
+            "image": "shopify://shop_images/BoxSection1.png",
+            "title": "Peru",
+            "price": "£13.50",
+            "rating": "★★★★★",
+            "region": "Ahuachapán",
+            "producer": "Ricardo Lima",
+            "process": "Natural",
+            "button_text": "Buy Now",
+            "read_more": "Read More",
+            "link": "",
+            "bg_color": "bg-green"
+          }
+        },
+        "favorite_card_fqbeX8": {
+          "type": "favorite_card",
+          "settings": {
+            "image": "shopify://shop_images/BoxSection2.png",
+            "title": "Peru",
+            "price": "£13.50",
+            "rating": "★★★★★",
+            "region": "Ahuachapán",
+            "producer": "Ricardo Lima",
+            "process": "Natural",
+            "button_text": "Buy Now",
+            "read_more": "Read More",
+            "link": "",
+            "bg_color": "bg-green"
+          }
+        },
+        "fav1": {
+          "type": "favorite_card",
+          "settings": {
+            "image": "shopify://shop_images/box_1.png",
+            "title": "Peru",
+            "price": "£13.50",
+            "rating": "★★★★★",
+            "region": "Ahuachapán",
+            "producer": "Ricardo Lima",
+            "process": "Natural",
+            "button_text": "Buy Now",
+            "read_more": "Read More",
+            "link": "",
+            "bg_color": "bg-green"
+          }
+        },
+        "fav2": {
+          "type": "favorite_card",
+          "settings": {
+            "image": "shopify://shop_images/5.png",
+            "title": "Brazil",
+            "price": "£14.00",
+            "rating": "★★★★★",
+            "region": "Minas Gerais",
+            "producer": "Carlos Silva",
+            "process": "Washed",
+            "button_text": "Buy Now",
+            "read_more": "Read More",
+            "link": "",
+            "bg_color": "bg-blue"
+          }
+        }
+      },
+      "block_order": [
+        "favorite_card_r8CMnV",
+        "favorite_card_HkF9rk",
+        "favorite_card_fqbeX8",
+        "fav1",
+        "fav2"
+      ],
+      "settings": {
+        "title": "Our Favorites"
+      }
+    },
+    "info_grid": {
+      "type": "info-grid",
+      "blocks": {
+        "card1": {
+          "type": "info_card",
+          "settings": {
+            "image_base": "shopify://shop_images/BoxSection1.png",
+            "image_hover": "shopify://shop_images/BoxSection2.png",
+            "heading": "Subscriptions",
+            "subtext": "Ethically sourced and direct to your door",
+            "button_text": "Read More",
+            "link": ""
+          }
+        },
+        "card2": {
+          "type": "info_card",
+          "settings": {
+            "image_base": "shopify://shop_images/AprilSubs1-1024x435_2.png",
+            "image_hover": "shopify://shop_images/BoxSection1.png",
+            "heading": "Brazil Trip 2024",
+            "subtext": "Blogs",
+            "button_text": "Read More",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card1",
+        "card2"
+      ],
+      "settings": {}
+    },
+    "virtual_tours": {
+      "type": "virtual-tours",
+      "settings": {
+        "heading": "Virtual Tours",
+        "description": "Come and have a walk through our HQ, take a look at our roastery, training room, showrooms, cupping room and engineering bay!",
+        "button_text": "Read More",
+        "button_link": "",
+        "image_base": "shopify://shop_images/VirtualTour.png",
+        "image_hover": "shopify://shop_images/2_1.png"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "title": "Incredible Experience",
+            "description": "The coffee Cometeer experience is incredible. It's having a high-end cup at my fingertips.",
+            "author": "Michel F."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "title": "Best Coffee Ever",
+            "description": "I've tried many roasts, but Clifton is consistently the smoothest and most flavorful.",
+            "author": "Sarah J."
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "title": "Perfect Every Morning",
+            "description": "I love the variety. The capsule collection is a lifesaver on busy work mornings.",
+            "author": "David K."
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "title": "Highly Recommended",
+            "description": "Ethically sourced and delicious. You can really taste the quality in every brew.",
+            "author": "Emily R."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "settings": {
+        "heading": "Thousands of 5 Star Reviews"
+      }
+    },
+    "instagram_feed": {
+      "type": "instagram-feed",
+      "blocks": {
+        "post_1": {
+          "type": "insta_post",
+          "settings": {
+            "image": "shopify://shop_images/box_1.png"
+          }
+        },
+        "post_2": {
+          "type": "insta_post",
+          "settings": {
+            "image": "shopify://shop_images/VirtualTour.png"
+          }
+        },
+        "post_3": {
+          "type": "insta_post",
+          "settings": {
+            "image": "shopify://shop_images/2_1.png"
+          }
+        },
+        "post_4": {
+          "type": "insta_post",
+          "settings": {
+            "image": "shopify://shop_images/6.png"
+          }
+        },
+        "post_5": {
+          "type": "insta_post",
+          "settings": {
+            "image": "shopify://shop_images/5.png"
+          }
+        }
+      },
+      "block_order": [
+        "post_1",
+        "post_2",
+        "post_3",
+        "post_4",
+        "post_5"
+      ],
+      "settings": {
+        "handle": "@cliftoncoffee",
+        "instagram_link": "https://instagram.com/cliftoncoffee",
+        "subtext": "Follow us on Instagram for the latest updates!"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Newsletter",
+        "subtext": "The latest coffees, offers and news from the Clifton.",
+        "placeholder": "Enter your email address"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "collections",
+    "new_products",
+    "shop_coffee_KFkxVw",
+    "feature_capsules",
+    "favorites",
+    "info_grid",
+    "virtual_tours",
+    "reviews",
+    "instagram_feed",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,85 @@
+<section class="instagram-feed">
+  <div class="insta-container">
+
+    <!-- HEADER -->
+    <div class="insta-header">
+      <a href="{{ section.settings.instagram_link }}" target="_blank" class="insta-handle">
+        {{ section.settings.handle }}
+      </a>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+
+    <!-- GRID -->
+    <div class="insta-grid">
+      {% for block in section.blocks %}
+        <div class="insta-item" {{ block.shopify_attributes }}>
+          
+          {% if block.settings.image != blank %}
+            <img 
+              src="{{ block.settings.image | image_url: width: 500 }}" 
+              alt="Instagram Post"
+              width="500"
+              height="500"
+            >
+          {% endif %}
+
+          <div class="insta-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Instagram Feed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Instagram Handle",
+      "default": "@cliftoncoffee"
+    },
+    {
+      "type": "url",
+      "id": "instagram_link",
+      "label": "Instagram Profile Link"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Follow us on Instagram for the latest updates!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "insta_post",
+      "name": "Instagram Post",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Post Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Feed",
+      "blocks": [
+        { "type": "insta_post" },
+        { "type": "insta_post" },
+        { "type": "insta_post" },
+        { "type": "insta_post" },
+        { "type": "insta_post" }
+      ]
+    }
+  ]
+}
+{% endschema %}

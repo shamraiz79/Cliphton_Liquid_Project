@@ -1,0 +1,84 @@
+<section class="virtual-tours">
+  <div class="tours-container">
+
+    <!-- TEXT CONTENT -->
+    <div class="tours-text">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.description }}</p>
+
+      <a href="{{ section.settings.button_link }}" class="btn-outline">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="tours-image">
+      {% if section.settings.image_base != blank %}
+        <img 
+          src="{{ section.settings.image_base | image_url: width: 800 }}" 
+          alt="Base Image"
+          class="img-base"
+          width="800"
+          height="500"
+        >
+      {% endif %}
+
+      {% if section.settings.image_hover != blank %}
+        <img 
+          src="{{ section.settings.image_hover | image_url: width: 800 }}" 
+          alt="Hover Image"
+          class="img-hover"
+          width="800"
+          height="500"
+        >
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Virtual Tours",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Virtual Tours"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Come and have a walk through our HQ, take a look at our roastery, training room, showrooms and more."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Read More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_base",
+      "label": "Base Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_hover",
+      "label": "Hover Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Virtual Tours"
+    }
+  ]
+}
+{% endschema %}

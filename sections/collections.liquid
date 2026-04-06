@@ -1,0 +1,109 @@
+<section class="collections-section">
+  <h2 class="section-title">{{ section.settings.title }}</h2>
+
+  <div class="slider-wrapper">
+    <button class="nav-arrow left-arrow" onclick="moveSlider(-1)">&#10094;</button>
+    
+    <div class="collections-window">
+      <div class="collections-container" id="collectionTrack">
+
+        {% for block in section.blocks %}
+          <div class="collection-card">
+
+            {% if block.settings.image_base != blank %}
+              <img src="{{ block.settings.image_base | image_url }}" class="img-base">
+            {% endif %}
+
+            {% if block.settings.image_hover != blank %}
+              <img src="{{ block.settings.image_hover | image_url }}" class="img-hover">
+            {% endif %}
+
+            <div class="view-more-overlay">View More</div>
+
+            <div class="card-overlay">
+              <h3>{{ block.settings.title }}</h3>
+
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}">
+                  <p>{{ block.settings.button_text }}</p>
+                </a>
+              {% else %}
+                <p>{{ block.settings.button_text }}</p>
+              {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <button class="nav-arrow right-arrow" onclick="moveSlider(1)">&#10095;</button>
+  </div>
+
+  <div class="slider-dots" id="dotContainer">
+    {% for block in section.blocks %}
+      <span class="dot {% if forloop.first %}active{% endif %}"></span>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_base",
+          "label": "Main Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_hover",
+          "label": "Hover Image"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Collection Name"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Collections Slider"
+    }
+  ]
+}
+{% endschema %}

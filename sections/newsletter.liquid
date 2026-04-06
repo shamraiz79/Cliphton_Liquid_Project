@@ -1,0 +1,64 @@
+<section class="newsletter-section">
+  <div class="newsletter-container">
+
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subtext }}</p>
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <div class="input-wrapper">
+        <input 
+          type="email"
+          name="contact[email]"
+          placeholder="{{ section.settings.placeholder }}"
+          required
+        >
+
+        <button type="submit" class="submit-btn">
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      {% if form.posted_successfully? %}
+        <p class="success-message">Thanks for subscribing!</p>
+      {% endif %}
+
+      {% if form.errors %}
+        <p class="error-message">{{ form.errors | default_errors }}</p>
+      {% endif %}
+    {% endform %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "The latest coffees, offers and news from the Clifton."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Enter your email address"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

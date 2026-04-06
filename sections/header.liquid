@@ -1,0 +1,242 @@
+<header id="main-header">
+
+  {% if section.settings.announcement_text != blank %}
+    <div class="top-announcement">
+      {{ section.settings.announcement_text }}
+    </div>
+  {% endif %}
+
+  <nav class="navbar">
+    <div class="nav-menu-wrapper">
+
+      <div class="nav-left">
+        <div class="hamburger" id="hamburger-btn">
+          &#9776;
+        </div>
+
+        <div class="desktop-links-left">
+          {% if section.settings.menu != blank %}
+            {% for link in linklists[section.settings.menu].links %}
+              <div class="nav-item {% if link.links != blank %}has-mega{% endif %}">
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                  {% if link.links != blank %}
+                    <span class="arrow-down"></span>
+                  {% endif %}
+                </a>
+
+                {% if link.links != blank %}
+                  <div class="mega-menu">
+                    <div class="mega-inner">
+                      <div class="mega-text">
+                        {% for childlink in link.links %}
+                          <div class="mega-col">
+                            <h4>{{ childlink.title }}</h4>
+                            {% for grandchildlink in childlink.links %}
+                              <a href="{{ grandchildlink.url }}">
+                                {{ grandchildlink.title }}
+                              </a>
+                            {% endfor %}
+                          </div>
+                        {% endfor %}
+                      </div>
+
+                      <div class="mega-images">
+                        {% if section.settings.mega_image_1 != blank %}
+                          <div class="mega-card">
+                            <img src="{{ section.settings.mega_image_1 | image_url: width: 300 }}">
+                            <h5>{{ section.settings.mega_title_1 }}</h5>
+                            <p>{{ section.settings.mega_text_1 }}</p>
+                          </div>
+                        {% endif %}
+                        {% if section.settings.mega_image_2 != blank %}
+                          <div class="mega-card">
+                            <img src="{{ section.settings.mega_image_2 | image_url: width: 300 }}">
+                            <h5>{{ section.settings.mega_title_2 }}</h5>
+                            <p>{{ section.settings.mega_text_2 }}</p>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="logo-image">
+        <a href="{{ routes.root_url }}">
+          {% if section.settings.logo != blank %}
+            <img 
+              src="{{ section.settings.logo | image_url: width: 200 }}" 
+              alt="{{ shop.name }}"
+              width="200"
+              height="auto"
+            >
+          {% else %}
+            <span>{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <div class="desktop-links-right">
+          {% if section.settings.secondary_menu != blank %}
+            {% for link in linklists[section.settings.secondary_menu].links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="nav-icons"> 
+          <img src="{{ 'Search.png' | asset_url }}" width="20" height="20" alt="Search" id="search-btn" style="cursor:pointer;">
+          <a href="/account">
+            <img src="{{ 'Customer.png' | asset_url }}" width="20" height="20" alt="Account">
+          </a>
+          <img src="{{ 'ShoppingCart.png' | asset_url }}" width="20" height="20" alt="Cart" id="cart-btn" style="cursor:pointer;">
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <div class="close-cart" id="close-cart-btn">&times;</div>
+  </div>
+  <div class="cart-body">
+    <p>Your cart is currently empty.</p>
+    <a href="/collections/all" class="btn-continue">Continue Browsing</a>
+  </div>
+</div>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="close-btn" id="close-btn">&times;</div>
+  <div class="search-wrapper">
+    <input type="text" placeholder="Start search">
+  </div>
+</div>
+
+<div class="mobile-nav-overlay" id="mobile-overlay"></div>
+<aside class="mobile-sidebar" id="mobile-sidebar">
+  <div class="sidebar-header">
+    <h2>Menu</h2>
+    <span class="close-sidebar" id="close-sidebar-btn">&times;</span>
+  </div>
+  <ul class="sidebar-links">
+    {% if section.settings.menu != blank %}
+      {% for link in linklists[section.settings.menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    {% endif %}
+    {% if section.settings.secondary_menu != blank %}
+      {% for link in linklists[section.settings.secondary_menu].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</aside>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("main-header");
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileSidebar = document.getElementById("mobile-sidebar");
+    const mobileOverlay = document.getElementById("mobile-overlay");
+    const closeSidebarBtn = document.getElementById("close-sidebar-btn");
+
+    // Sticky Header Scroll Effect
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    // Mobile Sidebar Logic
+    const openSidebar = () => {
+      mobileSidebar.classList.add("active");
+      mobileOverlay.classList.add("active");
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    };
+
+    const closeSidebar = () => {
+      mobileSidebar.classList.remove("active");
+      mobileOverlay.classList.remove("active");
+      document.body.style.overflow = "auto"; 
+    };
+
+    if(hamburgerBtn) hamburgerBtn.addEventListener("click", openSidebar);
+    if(closeSidebarBtn) closeSidebarBtn.addEventListener("click", closeSidebar);
+    if(mobileOverlay) mobileOverlay.addEventListener("click", closeSidebar);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Bar",
+      "default": "Order before 10am for same day dispatch!"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_menu",
+      "label": "Right Menu"
+    },
+    {
+      "type": "header",
+      "content": "Mega Menu Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "mega_image_1",
+      "label": "Mega Image 1"
+    },
+    {
+      "type": "text",
+      "id": "mega_title_1",
+      "label": "Mega Title 1"
+    },
+    {
+      "type": "text",
+      "id": "mega_text_1",
+      "label": "Mega Text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "mega_image_2",
+      "label": "Mega Image 2"
+    },
+    {
+      "type": "text",
+      "id": "mega_title_2",
+      "label": "Mega Title 2"
+    },
+    {
+      "type": "text",
+      "id": "mega_text_2",
+      "label": "Mega Text 2"
+    }
+  ]
+}
+{% endschema %}

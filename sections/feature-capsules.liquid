@@ -1,0 +1,105 @@
+<section class="feature-section">
+  <div class="feature-container">
+
+    <!-- TEXT SLIDER -->
+    <div class="feature-content-window">
+      <div class="feature-text-track" id="verticalTrack">
+
+        {% for block in section.blocks %}
+          <div class="content-block {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
+            
+            <h2>{{ block.settings.heading }}</h2>
+
+            <p>{{ block.settings.description }}</p>
+
+            {% if block.settings.button_text != blank %}
+              <a href="{{ block.settings.button_link }}" class="btn-read-more">
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- IMAGE + DOTS -->
+    <div class="feature-image-wrapper">
+
+      {% if section.settings.main_image != blank %}
+        <img 
+          src="{{ section.settings.main_image | image_url }}" 
+          alt="Feature Image" 
+          class="feature-img"
+        >
+      {% endif %}
+
+      <div class="side-dots">
+        {% for block in section.blocks %}
+          <span 
+            class="s-dot {% if forloop.first %}active{% endif %}" 
+            onclick="moveVerticalSlider({{ forloop.index0 }})">
+          </span>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature Capsules",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Clifton Capsules"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Write your description here..."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Capsules",
+      "blocks": [
+        { "type": "feature_item" },
+        { "type": "feature_item" },
+        { "type": "feature_item" },
+        { "type": "feature_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

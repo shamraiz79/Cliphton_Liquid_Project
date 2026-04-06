@@ -1,0 +1,159 @@
+<footer class="main-footer">
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <div class="b-corp">
+        {% if section.settings.logo != blank %}
+          <img 
+            src="{{ section.settings.logo | image_url: width: 200 }}" 
+            alt="Footer Logo"
+            width="200"
+            height="100"
+          >
+        {% endif %}
+      </div>
+
+      <div class="social-links">
+        {% if section.settings.facebook != blank %}
+          <a href="{{ section.settings.facebook }}"><i class="fab fa-facebook-f"></i></a>
+        {% endif %}
+        {% if section.settings.instagram != blank %}
+          <a href="{{ section.settings.instagram }}"><i class="fab fa-instagram"></i></a>
+        {% endif %}
+        {% if section.settings.youtube != blank %}
+          <a href="{{ section.settings.youtube }}"><i class="fab fa-youtube"></i></a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- MENU LINKS -->
+    <div class="footer-links">
+      {% for block in section.blocks %}
+        <div class="footer-col" {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.heading }}</h4>
+
+          {% if block.settings.menu != blank %}
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-contact">
+      <h4>{{ section.settings.contact_heading }}</h4>
+      <ul>
+        <li>
+          <i class="far fa-envelope"></i> 
+          {{ section.settings.email }}
+        </li>
+        <li>
+          <i class="fas fa-phone-alt"></i> 
+          {{ section.settings.phone }}
+        </li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i> 
+          {{ section.settings.address }}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>{{ section.settings.copyright }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram Link"
+    },
+    {
+      "type": "url",
+      "id": "youtube",
+      "label": "YouTube Link"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact Heading",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "sales@cliftoncoffee.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+44 1179 820 252"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Write address here..."
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright Text",
+      "default": "2025 © Your Store | Privacy Policy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Footer Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Column Heading",
+          "default": "Menu"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        { "type": "menu" },
+        { "type": "menu" },
+        { "type": "menu" }
+      ]
+    }
+  ]
+}
+{% endschema %}

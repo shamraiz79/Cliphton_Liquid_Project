@@ -1,0 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_text": "Order before 10am for same day dispatch!",
+          "logo": "shopify://shop_images/logo.png",
+          "menu": "main-menu",
+          "secondary_menu": "right-main-menu",
+          "mega_image_1": "shopify://shop_images/VirtualTour.png",
+          "mega_title_1": "Suspension Espresso",
+          "mega_text_1": "Brazil | Fazenda Pinhal",
+          "mega_image_2": "shopify://shop_images/2_1.png",
+          "mega_title_2": "Morning Machine",
+          "mega_text_2": "OPAL One Coffee Pod Machine"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "menu_tP3FUA": {
+            "type": "menu",
+            "settings": {
+              "heading": "Shop",
+              "menu": "shop-1"
+            }
+          },
+          "menu_mWQGHp": {
+            "type": "menu",
+            "settings": {
+              "heading": "Our Ethos",
+              "menu": "our-ethos"
+            }
+          },
+          "menu_xpAhJX": {
+            "type": "menu",
+            "settings": {
+              "heading": "Coffee",
+              "menu": "shop"
+            }
+          }
+        },
+        "block_order": [
+          "menu_tP3FUA",
+          "menu_mWQGHp",
+          "menu_xpAhJX"
+        ],
+        "settings": {
+          "logo": "shopify://shop_images/FooterLogo.png",
+          "facebook": "https://www.youtube.com/",
+          "instagram": "https://www.linkedin.com/in/shamraiz-imtiaz/",
+          "youtube": "https://www.linkedin.com/in/shamraiz-imtiaz/",
+          "contact_heading": "Contact Us",
+          "email": "sales@cliftoncoffee.co.uk",
+          "phone": "+44 1179 820 252",
+          "address": "Write address here...",
+          "copyright": "2025 © Your Store | Privacy Policy"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

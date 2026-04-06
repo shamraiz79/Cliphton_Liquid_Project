@@ -1,0 +1,206 @@
+<section class="new-products" id="new-products-section">
+  <div class="product-header">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subtext }}</p>
+  </div>
+
+  <div class="new-products-grid">
+
+    <div class="collage-container" id="main-collage">
+
+      <div class="collage-state active" data-type="coffee" id="collage-coffee">
+        {% if section.settings.coffee_image != blank %}
+          <img src="{{ section.settings.coffee_image | image_url: width: 800 }}" alt="Coffee">
+        {% else %}
+           <div style="width:100%; height:100%; background:#ccc; display:flex; align-items:center; justify-content:center;">Placeholder</div>
+        {% endif %}
+        <div class="view-more-overlay">View More</div>
+      </div>
+
+      <div class="collage-state grid-layout" data-type="capsule" id="collage-capsule">
+        {% for block in section.blocks %}
+          {% if block.type == 'collage_image' %}
+            <div class="grid-item">
+              <img src="{{ block.settings.image | image_url: width: 400 }}">
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+
+    <div class="product-slider-area">
+
+      <div class="filter-tabs" id="product-tabs">
+        <button class="tab active" onclick="switchTab(this, 'coffee')">Coffee</button>
+        <button class="tab" onclick="switchTab(this, 'capsule')">Capsule</button>
+        <button class="tab" onclick="switchTab(this, 'all')">All</button>
+      </div>
+
+      <div class="slider-wrapper-products">
+        <button class="nav-arrow left-arrow" onclick="moveProductSlider(-1)">&#10094;</button>
+        
+        <div class="product-slider-window">
+          <div class="product-cards" id="productTrack">
+
+           {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+             <div class="product-card" data-type="{% if product.tags contains 'capsule' %}capsule{% else %}coffee{% endif %}">
+                <div class="product-img-box">
+                  <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                </div>
+
+                <div class="product-info">
+                  <h3>{{ product.title }}</h3>
+                  <p class="price">{{ product.price | money }}</p>
+                  <p class="desc">{{product.description | strip_html | truncatewords: 10}}</p>
+
+                  <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="buy-now-btn">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            {% else %}
+               <p style="padding: 20px;">No products found in this collection.</p>
+            {% endfor %}
+
+          </div>
+        </div>
+
+        <button class="nav-arrow right-arrow" onclick="moveProductSlider(1)">&#10095;</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script defer>
+  let currentSlide = 0;
+
+  function switchTab(clickedTab, type) {
+    // 1. Update Tab Styling
+    const tabs = document.querySelectorAll('#product-tabs .tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    clickedTab.classList.add('active');
+
+    // 2. Update Collage Image
+    const coffeeCollage = document.getElementById('collage-coffee');
+    const capsuleCollage = document.getElementById('collage-capsule');
+    
+    if (type === 'coffee') {
+      coffeeCollage.classList.add('active');
+      capsuleCollage.classList.remove('active');
+    } else if (type === 'capsule') {
+      capsuleCollage.classList.add('active');
+      coffeeCollage.classList.remove('active');
+    } else {
+      // If "All", just show coffee by default
+      coffeeCollage.classList.add('active');
+      capsuleCollage.classList.remove('active');
+    }
+
+    // 3. Filter Product Cards
+    const cards = document.querySelectorAll('#productTrack .product-card');
+    cards.forEach(card => {
+      if (type === 'all' || card.getAttribute('data-type') === type) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Reset slider position
+    currentSlide = 0;
+    updateSliderPosition();
+  }
+
+  function moveProductSlider(direction) {
+    const track = document.getElementById('productTrack');
+    // Get only visible cards
+    const visibleCards = Array.from(track.children).filter(card => card.style.display !== 'none');
+    
+    if(visibleCards.length === 0) return;
+
+    // Check how many items are visible based on screen width
+    const isMobile = window.innerWidth <= 768;
+    const cardsPerView = isMobile ? 1 : 2; 
+    const maxSlide = Math.max(0, visibleCards.length - cardsPerView);
+
+    currentSlide += direction;
+
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+    updateSliderPosition();
+  }
+
+  function updateSliderPosition() {
+    const track = document.getElementById('productTrack');
+    // Card width + gap (gap is 20px)
+    const cardWidth = track.children[0].offsetWidth + 20; 
+    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+  }
+
+  // Recalculate slider on window resize
+  window.addEventListener('resize', updateSliderPosition);
+</script>
+
+
+{% schema %}
+{
+  "name": "New Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "New Products"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Discover our premium coffee collections crafted for every taste!"
+    },
+    {
+      "type": "image_picker",
+      "id": "coffee_image",
+      "label": "Main Coffee Image"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Product Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Number of products to show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collage_image",
+      "name": "Capsule Grid Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Grid Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "New Products",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

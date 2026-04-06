@@ -1,0 +1,62 @@
+<section class="shop-coffee-hero" 
+  style="background-image: url({{ section.settings.bg_image | image_url }});">
+
+  <div class="hero-overlay">
+    <div class="hero-text-container">
+
+      {% if section.settings.sub_heading != blank %}
+        <span class="sub-heading">
+          {{ section.settings.sub_heading }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1>{{ section.settings.heading }}</h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p>{{ section.settings.description }}</p>
+      {% endif %}
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Shop Coffee Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Clifton Coffee — Speciality Coffee"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Shop coffee"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover your perfect cup of coffee—crafted to match your taste and style."
+    }
+    
+    
+  ],
+  "presets": [
+    {
+      "name": "Shop Coffee Hero"
+    }
+  ]
+}
+{% endschema %}

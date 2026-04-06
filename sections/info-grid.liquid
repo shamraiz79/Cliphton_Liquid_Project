@@ -1,0 +1,86 @@
+<section class="info-grid-section">
+  <div class="info-grid-container">
+
+    {% for block in section.blocks %}
+    <div class="info-card" {{ block.shopify_attributes }}>
+
+      {% if block.settings.image_base %}
+        <img 
+          src="{{ block.settings.image_base | image_url }}" 
+          class="img-base" 
+          alt="{{ block.settings.heading }}">
+      {% endif %}
+
+      {% if block.settings.image_hover %}
+        <img 
+          src="{{ block.settings.image_hover | image_url }}" 
+          class="img-hover" 
+          alt="{{ block.settings.heading }}">
+      {% endif %}
+
+      <div class="info-overlay">
+        <h2>{{ block.settings.heading }}</h2>
+        <p>{{ block.settings.subtext }}</p>
+        <a href="{{ block.settings.link }}" class="btn-ghost">
+          {{ block.settings.button_text }}
+        </a>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Info Grid Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "info_card",
+      "name": "Info Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_base",
+          "label": "Base Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_hover",
+          "label": "Hover Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Subscriptions"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "Ethically sourced and direct to your door"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Info Grid Section"
+    }
+  ]
+}
+{% endschema %}

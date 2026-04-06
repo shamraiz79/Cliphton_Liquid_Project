@@ -1,0 +1,171 @@
+<section class="favorites-section">
+  <div class="favorites-container">
+
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+
+    <div class="slider-wrapper-favorites">
+
+      <!-- LEFT ARROW -->
+      <button class="nav-arrow fav-left" onclick="moveFavSlider(-1)">&#10094;</button>
+
+      <!-- SLIDER -->
+      <div class="favorites-window" id="favWindow">
+        <div class="favorites-grid" id="favTrack">
+
+          {% for block in section.blocks %}
+          <div class="favorite-card" {{ block.shopify_attributes }}>
+
+            <div class="product-thumb {{ block.settings.bg_color }}">
+              {% if block.settings.image %}
+                <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title }}">
+              {% endif %}
+
+              <div class="quick-view-overlay">
+                <div class="spec-row">
+                  <span>Region</span><span class="dots"></span>
+                  <span>{{ block.settings.region }}</span>
+                </div>
+
+                <div class="spec-row">
+                  <span>Producer</span><span class="dots"></span>
+                  <span>{{ block.settings.producer }}</span>
+                </div>
+
+                <div class="spec-row">
+                  <span>Process</span><span class="dots"></span>
+                  <span>{{ block.settings.process }}</span>
+                </div>
+
+                <button class="buy-now-btn-small">
+                  {{ block.settings.button_text }}
+                </button>
+
+                <a href="{{ block.settings.link }}" class="read-more-link">
+                  {{ block.settings.read_more }}
+                </a>
+              </div>
+            </div>
+
+            <div class="product-details">
+              <h3>{{ block.settings.title }}</h3>
+              <p class="price">{{ block.settings.price }}</p>
+              <div class="rating">{{ block.settings.rating }}</div>
+            </div>
+
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- RIGHT ARROW -->
+      <button class="nav-arrow fav-right" onclick="moveFavSlider(1)">&#10095;</button>
+
+    </div>
+
+    <!-- DOTS -->
+    <div class="slider-dots" id="favDots">
+      {% for block in section.blocks %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Favorites Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Favorites"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "favorite_card",
+      "name": "Favorite Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Name",
+          "default": "Peru"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "£13.50"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating",
+          "default": "★★★★★"
+        },
+        {
+          "type": "text",
+          "id": "region",
+          "label": "Region",
+          "default": "Ahuachapán"
+        },
+        {
+          "type": "text",
+          "id": "producer",
+          "label": "Producer",
+          "default": "Ricardo Lima"
+        },
+        {
+          "type": "text",
+          "id": "process",
+          "label": "Process",
+          "default": "Natural"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Buy Now"
+        },
+        {
+          "type": "text",
+          "id": "read_more",
+          "label": "Read More Text",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "bg-green",
+          "options": [
+            { "value": "bg-green", "label": "Green" },
+            { "value": "bg-blue", "label": "Blue" },
+            { "value": "bg-purple", "label": "Purple" },
+            { "value": "bg-pink", "label": "Pink" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Favorites Section"
+    }
+  ]
+}
+{% endschema %}
