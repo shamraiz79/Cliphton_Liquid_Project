@@ -36,9 +36,12 @@
                   <span>{{ block.settings.process }}</span>
                 </div>
 
-                <button class="buy-now-btn-small">
-                  {{ block.settings.button_text }}
-                </button>
+       {% assign product = block.settings.product %}
+
+       <a href="{% if product != blank %}{{ product.url }}{% else %}/products/colombia-los-nogales-low-caf{% endif %}" 
+        class="buy-now-btn-small">
+       {{ block.settings.button_text }}
+         </a>
 
                 <a href="{{ block.settings.link }}" class="read-more-link">
                   {{ block.settings.read_more }}

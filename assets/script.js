@@ -382,4 +382,8 @@ function moveFavoritesSlider(index) {
         behavior: 'smooth'
     });
 }
+
+
+
+
     

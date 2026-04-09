@@ -1,0 +1,29 @@
+<div id="cartDrawer" class="cart-drawer">
+  <!-- HEADER -->
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button onclick="closeCart()">✕</button>
+  </div>
+
+  <!-- CART ITEMS -->
+  <div class="cart-items" id="cartItems">
+    {% for item in cart.items %}
+      <div class="cart-item">
+        <img src="{{ item.image | image_url: width: 100 }}" alt="{{ item.product.title }}">
+        
+        <div class="item-info">
+          <p>{{ item.product.title }}</p>
+          <p>{{ item.quantity }} × {{ item.price | money }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cart-footer">
+    <p>Total: {{ cart.total_price | money }}</p>
+
+    <a href="/checkout" class="checkout-btn">Checkout</a>
+  </div>
+
+</div>
