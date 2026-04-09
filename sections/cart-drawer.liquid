@@ -7,23 +7,12 @@
 
   <!-- CART ITEMS -->
   <div class="cart-items" id="cartItems">
-    {% for item in cart.items %}
-      <div class="cart-item">
-        <img src="{{ item.image | image_url: width: 100 }}" alt="{{ item.product.title }}">
-        
-        <div class="item-info">
-          <p>{{ item.product.title }}</p>
-          <p>{{ item.quantity }} × {{ item.price | money }}</p>
-        </div>
-      </div>
-    {% endfor %}
+    <!-- JS will render products here -->
   </div>
 
   <!-- FOOTER -->
   <div class="cart-footer">
-    <p>Total: {{ cart.total_price | money }}</p>
-
+    <p>Total: <span id="cartTotal">Rs.0.00</span></p>
     <a href="/checkout" class="checkout-btn">Checkout</a>
   </div>
-
 </div>
